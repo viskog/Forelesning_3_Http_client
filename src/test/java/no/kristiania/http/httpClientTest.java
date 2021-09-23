@@ -2,6 +2,8 @@ package no.kristiania.http;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class httpClientTest {
@@ -12,13 +14,13 @@ class httpClientTest {
     }
 
     @Test
-    void shouldReturnStatusCode() {
+    void shouldReturnStatusCode() throws IOException {
         httpClient client = new httpClient("httpbin.org", 80, "/html");
         assertEquals(200, client.getStatusCode());
     }
 
     @Test
-    void shouldReturn404StatusCode() {
+    void shouldReturn404StatusCode() throws IOException {
         httpClient client = new httpClient("httpbin.org", 80, "/this-page.does-not-exist");
         assertEquals(404, client.getStatusCode());
     }
