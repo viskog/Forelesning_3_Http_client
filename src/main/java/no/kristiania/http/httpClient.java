@@ -55,4 +55,8 @@ public class httpClient {
         }
 
     }
+
+    public String getHeader(String s) {
+        return null;
+    }
 }
