@@ -15,6 +15,7 @@ public class httpClient {
 
         socket.getOutputStream().write(
                 ("GET /html HTTP/1.1\r\n" +
+                        "Connection: close\r\r" +
                         "Host: httpbin.org\r\n" +
                         "\r\n").getBytes()
         );
