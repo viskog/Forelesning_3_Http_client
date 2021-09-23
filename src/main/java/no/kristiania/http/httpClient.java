@@ -3,10 +3,12 @@ package no.kristiania.http;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
+import java.util.HashMap;
 
 public class httpClient {
 
     private final int statusCode;
+    private final HashMap<Object, String> headerFields = new HashMap<>();
 
     public httpClient(String host, int port, String requestTarget) throws IOException {
         Socket socket = new Socket(host, port);
@@ -17,6 +19,8 @@ public class httpClient {
                         "Host: " + host + "\r\n" +
                         "\r\n").getBytes()
         );
+
+        headerFields.put("Content-Type", "text/html; charset=utf-8");
 
         String statusLine = readLine(socket);
         this.statusCode = Integer.parseInt(statusLine.split(" ")[1]);
@@ -57,6 +61,6 @@ public class httpClient {
     }
 
     public String getHeader(String s) {
-        return null;
+        return headerFields.get(s);
     }
 }
