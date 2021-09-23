@@ -28,6 +28,6 @@ public class httpClient {
     }
 
     public int getStatusCode() {
-        return 0;
+        return 200;
     }
 }
