@@ -17,4 +17,10 @@ class httpClientTest {
         assertEquals(200, client.getStatusCode());
     }
 
+    @Test
+    void shouldReturn404StatusCode() {
+        httpClient client = new httpClient("httpbin.org", 80, "/this-page.does-not-exist");
+        assertEquals(404, client.getStatusCode());
+    }
+
 }
