@@ -43,7 +43,7 @@ public class httpClient {
         while ((c = in.read()) != -1 && c != '\r') {
             result.append((char)c);
         }
-
+        in.read();
         return result.toString();
     }
 
@@ -71,5 +71,9 @@ public class httpClient {
 
     public String getHeader(String s) {
         return headerFields.get(s);
+    }
+
+    public int getContentLength() {
+        return 0;
     }
 }
